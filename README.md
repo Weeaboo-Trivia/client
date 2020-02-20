@@ -1,0 +1,2 @@
+# client
+Weeaboo Trivia client
