@@ -10,7 +10,7 @@
               <input @keyup.enter="submitName" type="text" v-model="name" placeholder="Enter your name and press enter..." style="width: 300px;">
             </div>
             <div class="card-body">
-              <b-card-group style="max-height: 500px">
+              <b-card-group style="height: 500px; max-height: 500px">
                 <b-card style="background-color: #FAEBD7">
                   <b-card-img src="https://i.ya-webdesign.com/images/anime-png-gifs-6.gif" class="rounded-0" style="margin-top: 80px; background-color: #FAEBD7"></b-card-img>
                 </b-card>
