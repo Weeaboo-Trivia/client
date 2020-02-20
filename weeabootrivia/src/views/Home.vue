@@ -32,8 +32,6 @@
 <script>
 // @ is an alias to /src
 
-import io from 'socket.io-client'
-const socket = io('http://localhost:3000')
 export default {
   name: 'Home',
   data () {
@@ -45,25 +43,30 @@ export default {
   methods: {
     addRoom () {
       console.log('masuk ke add room', this.roomName)
-      socket.emit('createRoom', this.roomName)
+      this.socket.emit('createRoom', this.roomName)
     },
     enterRoom (id) {
       this.$router.push(`/room/${id}`)
     }
   },
   created () {
-    socket.emit('fetchRooms', this.roomName)
-    socket.on('roomCreated', (room) => {
+    this.socket.emit('fetchRooms', this.roomName)
+    this.socket.on('roomCreated', (room) => {
       this.$bvToast.toast(`Add room ${room.id} success`, {
         title: 'Add Room success',
         variant: 'success',
         solid: true
       })
-      socket.emit('fetchRooms', this.roomName)
+      this.socket.emit('fetchRooms', this.roomName)
     })
-    socket.on('showRooms', (rooms) => {
+    this.socket.on('showRooms', (rooms) => {
       this.listRooms = rooms
     })
+  },
+  computed: {
+    socket () {
+      return this.$store.state.socket
+    }
   }
 }
 </script>
