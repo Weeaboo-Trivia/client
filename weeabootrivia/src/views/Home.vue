@@ -1,11 +1,14 @@
 <template>
   <div class="home">
+   <!-- <audio src="../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3" controls id="myVideo" autoplay='autoplay' loop='loop' preload="auto">
+  Your browser does not support the audio element.
+  </audio> -->
     <div class="container">
       <div class="row">
         <div class="col-sm"></div>
         <div class="col-sm text-center">
           <input @keyup.enter="addRoom" class="" type="text" v-model="roomName" placeholder="room name">
-          <button @click="addRoom" class="btn btn-success btn-sm" style="margin-left: 5px;">Add room</button>
+          <button @click="addRoom" class="btn btn-success btn-sm" style="margin-left: 5px;"><i class="fas fa-sign-in-alt"></i></button>
           <br><br>
           <div class="card card-signup z-depth-0 text-center bg-transparent border-0" style="width: 500px;height: 600px; max-height: 600px;">
             <div class="card-header">
@@ -22,7 +25,9 @@
             </div>
           </div>
         </div>
-        <div class="col-sm"></div>
+        <div class="col-sm text-center">
+          <b-calendar locale="id"></b-calendar>
+        </div>
       </div>
     </div>
 
@@ -31,6 +36,7 @@
 
 <script>
 // @ is an alias to /src
+import { Howl } from 'howler'
 
 export default {
   name: 'Home',
@@ -47,6 +53,13 @@ export default {
     },
     enterRoom (id) {
       this.$router.push(`/room/${id}`)
+    },
+    playSound () {
+      var sound = new Howl({
+        src: ['../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3'],
+        volume: 100
+      })
+      sound.play()
     }
   },
   created () {
@@ -62,12 +75,26 @@ export default {
     this.socket.on('showRooms', (rooms) => {
       this.listRooms = rooms
     })
+    this.playSound()
   },
   computed: {
     socket () {
       return this.$store.state.socket
     }
   }
+  // ,
+  // mounted: function () {
+  //   var sound = new Howl({
+  //     src: '../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3',
+  //     autoplay: true,
+  //     loop: true,
+  //     volume: 0.5,
+  //     onend: function () {
+  //       console.log('Finished!')
+  //     }
+  //   })
+  //   this.playSound(sound)
+  // }
 }
 </script>
 

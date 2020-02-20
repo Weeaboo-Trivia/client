@@ -6,7 +6,7 @@
         <div class="col-sm-7">
           <div class="card card-signup z-depth-0 bg-transparent border-0">
             <div class="card-header text-center">
-              <h1>Room {{ roomKe }}</h1>
+              <h1 style="color: #8B008B">Room {{ roomKe }}</h1>
               <input @keyup.enter="submitName" type="text" v-model="name" placeholder="Enter your name and press enter..." style="width: 300px;">
             </div>
             <div class="card-body">
