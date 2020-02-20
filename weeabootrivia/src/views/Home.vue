@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+   <!-- <audio src="../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3" controls id="myVideo" autoplay='autoplay' loop='loop' preload="auto">
+  Your browser does not support the audio element.
+  </audio> -->
     <div class="container">
       <div class="row">
         <div class="col-sm"></div>
@@ -33,6 +36,7 @@
 
 <script>
 // @ is an alias to /src
+import { Howl } from 'howler'
 
 export default {
   name: 'Home',
@@ -49,6 +53,13 @@ export default {
     },
     enterRoom (id) {
       this.$router.push(`/room/${id}`)
+    },
+    playSound () {
+      var sound = new Howl({
+        src: ['../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3'],
+        volume: 100
+      })
+      sound.play()
     }
   },
   created () {
@@ -64,12 +75,26 @@ export default {
     this.socket.on('showRooms', (rooms) => {
       this.listRooms = rooms
     })
+    this.playSound()
   },
   computed: {
     socket () {
       return this.$store.state.socket
     }
   }
+  // ,
+  // mounted: function () {
+  //   var sound = new Howl({
+  //     src: '../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3',
+  //     autoplay: true,
+  //     loop: true,
+  //     volume: 0.5,
+  //     onend: function () {
+  //       console.log('Finished!')
+  //     }
+  //   })
+  //   this.playSound(sound)
+  // }
 }
 </script>
 
