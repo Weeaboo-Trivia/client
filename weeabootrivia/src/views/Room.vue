@@ -6,7 +6,7 @@
     <br><br>
     <br>
     {{ room }}
-    <button class="btn btn-primary" v-if="startButton">Start</button>
+    <button @click="startGame" class="btn btn-primary" v-if="startButton">Start Game</button>
   </div>
 </template>
 
@@ -24,6 +24,9 @@ export default {
       console.log(this.name)
       this.socket.emit('joinRoom', { id: this.roomKe, name: this.name })
       this.name = ''
+    },
+    startGame () {
+      this.$router.push('/game')
     }
   },
   computed: {
