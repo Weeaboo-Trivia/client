@@ -5,7 +5,7 @@
         <div class="col-sm"></div>
         <div class="col-sm text-center">
           <input @keyup.enter="addRoom" class="" type="text" v-model="roomName" placeholder="room name">
-          <button @click="addRoom" class="btn btn-success btn-sm" style="margin-left: 5px;">Add room</button>
+          <button @click="addRoom" class="btn btn-success btn-sm" style="margin-left: 5px;"><i class="fas fa-sign-in-alt"></i></button>
           <br><br>
           <div class="card card-signup z-depth-0 text-center bg-transparent border-0" style="width: 500px;height: 600px; max-height: 600px;">
             <div class="card-header">
@@ -22,7 +22,9 @@
             </div>
           </div>
         </div>
-        <div class="col-sm"></div>
+        <div class="col-sm text-center">
+          <b-calendar locale="id"></b-calendar>
+        </div>
       </div>
     </div>
 
