@@ -1,12 +1,28 @@
 <template>
   <div class="home">
-    <input @keyup.enter="addRoom" type="text" v-model="roomName">
-    <button @click="addRoom">Add room</button>
-    <div class="row mt-3">
-      <div class="col-sm-2" v-for="room in listRooms" :key="room.id">
-        <b-card bg-variant="light" :header="`Room ${room.id}`" class="text-center" @click="enterRoom(room.id)">
-          <b-card-text>Room {{ room.name }}</b-card-text>
-        </b-card>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm"></div>
+        <div class="col-sm text-center">
+          <input @keyup.enter="addRoom" class="" type="text" v-model="roomName" placeholder="room name">
+          <button @click="addRoom" class="btn btn-success btn-sm" style="margin-left: 5px;">Add room</button>
+          <br><br>
+          <div class="card card-signup z-depth-0 text-center bg-transparent border-0" style="width: 500px;height: 600px; max-height: 600px;">
+            <div class="card-header">
+              <img src="../assets/e56.gif" alt="" style="height: 150px">
+            </div>
+            <div class="card-body" style="overflow: auto;">
+              <div class="row mt-3">
+                <div class="col-sm-2" v-for="room in listRooms" :key="room.id">
+                  <b-card bg-variant="light" :header="`Room ${room.id}`" class="text-center" @click="enterRoom(room.id)">
+                    <b-card-text>Room {{ room.name }}</b-card-text>
+                  </b-card>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm"></div>
       </div>
     </div>
 
@@ -54,3 +70,14 @@ export default {
   }
 }
 </script>
+
+<style >
+  .bg {
+    background-image: url('../assets/saenai-heroine-no-sodatekata-megumi-kato-uhd-4k-wallpaper.jpg');
+    max-height: 100vh;
+    /* background-position: center; */
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
