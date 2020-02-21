@@ -52,7 +52,8 @@ export default {
         '../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3'
       ],
       roomName: '',
-      listRooms: []
+      listRooms: [],
+      warningBox: ''
     }
   },
   methods: {
@@ -64,7 +65,27 @@ export default {
       this.$router.push(`/room/${id}`)
     }
   },
+  showWarningBox () {
+    this.boxTwo = ''
+    this.$bvModal.msgBoxOk('Please enter room properly before you play', {
+      title: 'Warning',
+      size: 'md',
+      buttonSize: 'md',
+      okVariant: 'warning',
+      headerClass: 'p-2 border-bottom-0',
+      footerClass: 'p-2 border-top-0',
+      centered: true
+    })
+      .then(value => {
+        this.warningBox = value
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  },
+
   created () {
+    console.log(this.$route, 'Ini router')
     this.socket.emit('fetchRooms', this.roomName)
     this.socket.on('roomCreated', (room) => {
       this.$bvToast.toast(`Add room ${room.id} success`, {

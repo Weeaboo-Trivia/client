@@ -28,6 +28,10 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: function () {
       return import(/* webpackChunkName: "game" */ '../views/Game.vue')
+    },
+    beforeEnter: (to, from, next) => {
+      if (from.path !== `/room/${from.params.id}`) next('/')
+      else next()
     }
   },
   {
@@ -38,6 +42,10 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: function () {
       return import(/* webpackChunkName: "game" */ '../views/Game.vue')
+    },
+    beforeEnter: (to, from, next) => {
+      if (from.path !== '/game') next('/')
+      else next()
     }
   },
   {
