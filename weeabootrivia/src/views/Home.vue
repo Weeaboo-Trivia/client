@@ -1,6 +1,8 @@
 <template>
   <div class="home">
     <div class="container">
+      <!-- <audio-player :sources="audioSources" :loop="true"></audio-player> -->
+      <spooky-pic></spooky-pic>
       <div class="row">
         <div class="col-sm"></div>
         <div class="col-sm text-center">
@@ -13,8 +15,8 @@
               <img src="../assets/e56.gif" alt="" style="height: 150px">
             </div>
             <div class="card-body" style="overflow: auto;">
-              <div class="row mt-3">
-                <div class="col-sm-2" v-for="room in listRooms" :key="room.id">
+              <div class="row my-3">
+                <div class="col-6 mb-3" v-for="room in listRooms" :key="room.id">
                   <b-card bg-variant="light" :header="`Room ${room.id}`" class="text-center" @click="enterRoom(room.id)">
                     <b-card-text>Room {{ room.name }}</b-card-text>
                   </b-card>
@@ -36,11 +38,19 @@
 <script>
 // @ is an alias to /src
 // import { Howl } from 'howler'
-
+// import AudioPlayer from '../components/audio-player.vue'
+import SpookyPic from '../components/SpookyPic.vue'
 export default {
   name: 'Home',
+  components: {
+    // AudioPlayer,
+    SpookyPic
+  },
   data () {
     return {
+      audioSources: [
+        '../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3'
+      ],
       roomName: '',
       listRooms: []
     }
@@ -53,18 +63,6 @@ export default {
     enterRoom (id) {
       this.$router.push(`/room/${id}`)
     }
-    // playSound () {
-    //   $('audio').play()
-    //   // var sound = new Howl({
-    //   //   src: ['../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3'],
-    //   //   autoplay: true,
-    //   //   loop: true,
-    //   //   volume: 0.5,
-    //   //   onend: function () {
-    //   //     console.log('Finished!')
-    // // })
-    // // sound.play()
-    // }
   },
   created () {
     this.socket.emit('fetchRooms', this.roomName)
