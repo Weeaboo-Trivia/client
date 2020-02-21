@@ -12,13 +12,8 @@
                 <br><br>
                 <b-button @click="levelSelect" variant="outline-primary">Select</b-button>
               </div>
-<<<<<<< HEAD
               <div v-if="questions.length" class="card-body">
                 <b-card-group size="lg" style="overflow: auto">
-=======
-              <div v-if="questionNumber" class="card-body">
-                <b-card-group style="height: 500px; max-height: 500px">
->>>>>>> 786991464df7840e6cf2ccffa194c3fca991f4de
                   <b-card style="background-color: #FAEBD7">
                     <b-card-img src="https://i.gifer.com/WMDv.gif" hidden class="rounded-0" style="margin-top: 80px; background-color: #FAEBD7"></b-card-img>
                   </b-card>
