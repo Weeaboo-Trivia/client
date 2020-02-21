@@ -10,7 +10,17 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  computed: {
+    socket () {
+      return this.$store.state.socket
+    }
+  },
+  created () {
+    this.socket.on('toGamePage', () => {
+      this.$router.push('/game')
+    })
+  }
 }
 </script>
 

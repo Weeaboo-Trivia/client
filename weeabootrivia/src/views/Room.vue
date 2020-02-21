@@ -7,7 +7,8 @@
           <div class="card card-signup z-depth-0 bg-transparent border-0">
             <div class="card-header text-center">
               <h1 style="color: #8B008B">Room {{ roomKe }}</h1>
-              <input @keyup.enter="submitName" type="text" v-model="name" placeholder="Enter your name and press enter..." style="width: 300px;">
+              <label for="enterRoom">Enter your name to enter this room</label> <br>
+              <input id="enterRoom" @keyup.enter="submitName" type="text" v-model="name" placeholder="Enter your name and press enter..." style="width: 300px;">
             </div>
             <div class="card-body">
               <b-card-group style="height: 500px; max-height: 500px">
@@ -16,7 +17,7 @@
                 </b-card>
                 <b-card>
                   {{ room }}
-                  <button class="btn btn-primary" v-if="startButton">Start</button>
+                  <button class="btn btn-primary" v-if="startButton">Start Game</button>
                 </b-card>
               </b-card-group>
             </div>
@@ -42,6 +43,9 @@ export default {
       console.log(this.name)
       this.socket.emit('joinRoom', { id: this.roomKe, name: this.name })
       this.name = ''
+    },
+    startGame () {
+      this.$router.push('/game')
     }
   },
   computed: {

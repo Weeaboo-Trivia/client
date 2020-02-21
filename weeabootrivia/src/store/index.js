@@ -10,7 +10,8 @@ export default new Vuex.Store({
       id: null,
       players: []
     },
-    socket: io('http://localhost:3000')
+    socket: io('http://localhost:3000'),
+    questions: []
   },
   mutations: {
     enterRoom (state, data) {
@@ -21,6 +22,9 @@ export default new Vuex.Store({
     },
     syncRoom (state, data) {
       state.room = data
+    },
+    setQuestions (state, data) {
+      state.questions = data
     }
   },
   actions: {
