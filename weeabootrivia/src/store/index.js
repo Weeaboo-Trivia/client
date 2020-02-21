@@ -24,7 +24,7 @@ export default new Vuex.Store({
       state.room = data
     },
     setQuestions (state, data) {
-      state.questions = data
+      state.questions = data.results
     }
   },
   actions: {

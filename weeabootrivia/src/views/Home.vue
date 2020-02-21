@@ -23,7 +23,7 @@
                 </div>
               </div>
             </div>
-          <audio src="../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3" controls id="myKato" autoplay='autoplay' loop='loop' preload="auto" type='audio/mp3'></audio>
+          <!-- <audio src="../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3" controls id="myKato" hidden autoplay='autoplay' loop='loop' preload="auto" type='audio/mp3'></audio> -->
           </div>
         </div>
         <div class="col-sm text-center">
@@ -62,18 +62,6 @@ export default {
     },
     enterRoom (id) {
       this.$router.push(`/room/${id}`)
-    },
-    playSound () {
-      // $('audio').play()
-      // var sound = new Howl({
-      //   src: ['../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3'],
-      //   autoplay: true,
-      //   loop: true,
-      //   volume: 0.5,
-      //   onend: function () {
-      //     console.log('Finished!')
-    // })
-    // sound.play()
     }
   },
   created () {
