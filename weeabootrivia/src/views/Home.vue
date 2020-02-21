@@ -15,8 +15,8 @@
               <img src="../assets/e56.gif" alt="" style="height: 150px">
             </div>
             <div class="card-body" style="overflow: auto;">
-              <div class="row mt-3">
-                <div class="col-sm-2" v-for="room in listRooms" :key="room.id">
+              <div class="row my-3">
+                <div class="col-6 mb-3" v-for="room in listRooms" :key="room.id">
                   <b-card bg-variant="light" :header="`Room ${room.id}`" class="text-center" @click="enterRoom(room.id)">
                     <b-card-text>Room {{ room.name }}</b-card-text>
                   </b-card>
@@ -38,12 +38,12 @@
 <script>
 // @ is an alias to /src
 // import { Howl } from 'howler'
-import AudioPlayer from '../components/audio-player.vue'
+// import AudioPlayer from '../components/audio-player.vue'
 import SpookyPic from '../components/SpookyPic.vue'
 export default {
   name: 'Home',
   components: {
-    AudioPlayer,
+    // AudioPlayer,
     SpookyPic
   },
   data () {
