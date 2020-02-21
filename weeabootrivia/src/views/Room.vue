@@ -5,12 +5,12 @@
       <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-7">
-          <div class="card card-signup z-depth-0 bg-transparent border-0">
+          <div class="card card-signup z-depth-0 bg-transparent border-0" style="margin-bottom: auto">
             <div class="card-header text-center">
               <h1 style="color: #8B008B">Room {{ roomKe }}</h1>
               <label for="enterRoom">Enter your name to enter this room</label> <br>
               <input id="enterRoom" @keyup.enter="submitName" type="text" v-model="name" placeholder="Enter your name and press enter..." style="width: 300px;" > <br><br>
-              <button class="btn btn-primary" v-if="startButton">Start Game</button>
+              <button class="btn btn-primary" @click="startGame" v-if="startButton">Start Game</button>
             </div>
             <div class="card-body">
               <b-card-group style="height: 500px; max-height: 500px">

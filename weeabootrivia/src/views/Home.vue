@@ -23,7 +23,7 @@
                 </div>
               </div>
             </div>
-          <audio src="../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3" controls id="myKato" autoplay='autoplay' loop='loop' preload="auto" type='audio/mp3'></audio>
+          <audio src="../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3" hidden controls id="myKato" autoplay='autoplay' loop='loop' preload="auto" type='audio/mp3'></audio>
           </div>
         </div>
         <div class="col-sm text-center">
