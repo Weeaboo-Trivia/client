@@ -1,6 +1,7 @@
 <template>
   <div class="about">
     <div class="container">
+      <audio src="../assets/sound/メインテーマ (MAIN THEME) Saekano Original Sound Track.mp3" hidden controls id="myKato" autoplay='autoplay' loop='loop' preload="auto" type='audio/mp3'></audio>
       <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-7">
@@ -8,7 +9,8 @@
             <div class="card-header text-center">
               <h1 style="color: #8B008B">Room {{ roomKe }}</h1>
               <label for="enterRoom">Enter your name to enter this room</label> <br>
-              <input id="enterRoom" @keyup.enter="submitName" type="text" v-model="name" placeholder="Enter your name and press enter..." style="width: 300px;">
+              <input id="enterRoom" @keyup.enter="submitName" type="text" v-model="name" placeholder="Enter your name and press enter..." style="width: 300px;" > <br><br>
+              <button class="btn btn-primary" v-if="startButton">Start Game</button>
             </div>
             <div class="card-body">
               <b-card-group style="height: 500px; max-height: 500px">
@@ -16,8 +18,7 @@
                   <b-card-img src="https://i.ya-webdesign.com/images/anime-png-gifs-6.gif" class="rounded-0" style="margin-top: 80px; background-color: #FAEBD7"></b-card-img>
                 </b-card>
                 <b-card>
-                  {{ room }}
-                  <button class="btn btn-primary" v-if="startButton">Start Game</button>
+                  <h5 v-for="name in room.players" :key="name.id">{{ name }}</h5>
                 </b-card>
               </b-card-group>
             </div>
@@ -82,3 +83,6 @@ export default {
   }
 }
 </script>
+
+<style>
+</style>

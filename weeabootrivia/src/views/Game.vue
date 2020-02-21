@@ -1,11 +1,33 @@
 <template>
   <div id="game">
-    ini game
-    <b-form-select v-model="selected" :options="options"></b-form-select>
-    <br><br>
-    <b-button @click="levelSelect" variant="outline-primary">Select</b-button>
-    {{ questions }}
-    <br><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-7">
+            <div class="card card-signup z-depth-0 bg-transparent border-0">
+              <div class="card-header text-center">
+                ini game
+                <b-form-select v-model="selected" :options="options"></b-form-select>
+                <br><br>
+                <b-button @click="levelSelect" variant="outline-primary">Select</b-button>
+              </div>
+              <div v-if="questions.length" class="card-body">
+                <b-card-group style="height: 500px; max-height: 500px">
+                  <b-card style="background-color: #FAEBD7">
+                    <b-card-img src="https://i.ya-webdesign.com/images/anime-png-gifs-6.gif" class="rounded-0" style="margin-top: 80px; background-color: #FAEBD7"></b-card-img>
+                  </b-card>
+                  <b-card>
+                    <label>Question:</label><br>
+                    {{ questions[index].question }}
+                  </b-card>
+                </b-card-group>
+              </div>
+            </div>
+            <br><br>
+        </div>
+        <div class="col-sm-1"></div>
+      </div>
+    </div>
   </div>
 </template>
 
