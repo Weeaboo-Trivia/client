@@ -19,6 +19,7 @@
                 </b-card>
                 <b-card>
                   <h5 v-for="name in room.players" :key="name.id">{{ name }}</h5>
+                  <button @click="startGame" class="btn btn-primary" v-if="startButton">Start Game</button>
                 </b-card>
               </b-card-group>
             </div>
