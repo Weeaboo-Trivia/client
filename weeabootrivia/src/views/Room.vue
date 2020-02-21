@@ -17,7 +17,7 @@
                 </b-card>
                 <b-card>
                   {{ room }}
-                  <button class="btn btn-primary" v-if="startButton">Start Game</button>
+                  <button @click="startGame" class="btn btn-primary" v-if="startButton">Start Game</button>
                 </b-card>
               </b-card-group>
             </div>
