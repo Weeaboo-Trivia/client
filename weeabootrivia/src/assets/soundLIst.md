@@ -18,3 +18,6 @@ assets/sound/メインテーマ (MAIN THEME) Saekano Original Sound Track.mp3
 
 when wating for the game:
 assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3
+
+jumpscare video:
+assets/video/jumpscare.mp4
