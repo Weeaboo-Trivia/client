@@ -1,6 +1,8 @@
 <template>
   <div id="game">
     <div class="container">
+      <audio src="../assets/sound/tuturu_1.mp3" hidden controls id="myKato" autoplay='autoplay' loop='loop' preload="auto" type='audio/mp3'></audio>
+      <audio src="../assets/sound/Tengen Toppa Gurren Lagann OST Sorairo Days FULL VERSION.mp3" hidden controls id="myKato" autoplay='autoplay' loop='loop' preload="auto" type='audio/mp3'></audio>
       <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-7">
@@ -10,10 +12,10 @@
                 <br><br>
                 <b-button @click="levelSelect" variant="outline-primary">Select</b-button>
               </div>
-              <div v-if="questionNumber" class="card-body">
-                <b-card-group style="height: 500px; max-height: 500px">
+              <div v-if="questions.length" class="card-body">
+                <b-card-group size="lg" style="overflow: auto">
                   <b-card style="background-color: #FAEBD7">
-                    <b-card-img src="https://i.ya-webdesign.com/images/anime-png-gifs-6.gif" class="rounded-0" style="margin-top: 80px; background-color: #FAEBD7"></b-card-img>
+                    <b-card-img src="https://i.gifer.com/WMDv.gif" hidden class="rounded-0" style="margin-top: 80px; background-color: #FAEBD7"></b-card-img>
                   </b-card>
                   <b-card>
                     <label>Question:</label><br>
