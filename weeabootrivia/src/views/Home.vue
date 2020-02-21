@@ -1,12 +1,10 @@
 <template>
   <div class="home">
-   <!-- <audio src="../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3" controls id="myVideo" autoplay='autoplay' loop='loop' preload="auto">
-  Your browser does not support the audio element.
-  </audio> -->
     <div class="container">
       <div class="row">
         <div class="col-sm"></div>
         <div class="col-sm text-center">
+          <br><br>
           <input @keyup.enter="addRoom" class="" type="text" v-model="roomName" placeholder="room name">
           <button @click="addRoom" class="btn btn-success btn-sm" style="margin-left: 5px;"><i class="fas fa-sign-in-alt"></i></button>
           <br><br>
@@ -23,6 +21,7 @@
                 </div>
               </div>
             </div>
+          <audio src="../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3" controls id="myKato" autoplay='autoplay' loop='loop' preload="auto" type='audio/mp3'></audio>
           </div>
         </div>
         <div class="col-sm text-center">
@@ -36,7 +35,7 @@
 
 <script>
 // @ is an alias to /src
-import { Howl } from 'howler'
+// import { Howl } from 'howler'
 
 export default {
   name: 'Home',
@@ -55,11 +54,16 @@ export default {
       this.$router.push(`/room/${id}`)
     },
     playSound () {
-      var sound = new Howl({
-        src: ['../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3'],
-        volume: 100
-      })
-      sound.play()
+      $('audio').play()
+      // var sound = new Howl({
+      //   src: ['../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3'],
+      //   autoplay: true,
+      //   loop: true,
+      //   volume: 0.5,
+      //   onend: function () {
+      //     console.log('Finished!')
+    // })
+    // sound.play()
     }
   },
   created () {
@@ -81,20 +85,12 @@ export default {
     socket () {
       return this.$store.state.socket
     }
+  },
+  mounted () {
+    const x = document.getElementById('myKato')
+    x.autoplay = true
+    x.load()
   }
-  // ,
-  // mounted: function () {
-  //   var sound = new Howl({
-  //     src: '../assets/sound/まったくなんだかなあ (MATTAKU NANNDAKA NAA) Saekano Original Sound Track.mp3',
-  //     autoplay: true,
-  //     loop: true,
-  //     volume: 0.5,
-  //     onend: function () {
-  //       console.log('Finished!')
-  //     }
-  //   })
-  //   this.playSound(sound)
-  // }
 }
 </script>
 
